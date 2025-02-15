@@ -3,7 +3,7 @@
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import LoginForm from '@/components/auth/LoginForm';
-import { routes } from '@/config/routes';
+import { routes, getLocalizedRoute } from '@/config/routes';
 import { useParams } from 'next/navigation';
 
 export default function LoginPage() {
@@ -27,7 +27,7 @@ export default function LoginPage() {
 
         <div className="mt-6 text-center">
           <Link
-            href={`/${locale}${routes.auth.register}`}
+            href={getLocalizedRoute(routes.auth.register, locale as string)}
             className="font-medium text-indigo-600 hover:text-indigo-500"
           >
             {t('signUp')}

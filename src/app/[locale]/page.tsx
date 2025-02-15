@@ -1,9 +1,13 @@
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import { routes, getLocalizedRoute } from '@/config/routes';
+import { useParams } from 'next/navigation';
 
-export default function Home() {
+export default function HomePage() {
   const t = useTranslations('Home');
+  const tCommon = useTranslations('common');
+  const { locale } = useParams();
 
   return (
     <div className="relative isolate">
@@ -23,10 +27,16 @@ export default function Home() {
           </p>
           <div className="mt-10 flex items-center justify-center gap-x-6">
             <Link
-              href="/calculator"
+              href={getLocalizedRoute(routes.auth.register, locale as string)}
               className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
             >
-              {t('cta')}
+              {tCommon('register')}
+            </Link>
+            <Link
+              href={getLocalizedRoute(routes.auth.login, locale as string)}
+              className="text-sm font-semibold leading-6 text-gray-900 hover:text-gray-600"
+            >
+              {tCommon('login')} <span aria-hidden="true">→</span>
             </Link>
           </div>
         </motion.div>
