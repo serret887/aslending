@@ -1,15 +1,18 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import './globals.css';
+import '../globals.css';
 import { notFound } from 'next/navigation';
 import { NextIntlClientProvider } from 'next-intl';
 import Navigation from '@/components/Navigation';
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
-  title: 'AS Funding - Mortgage Lending Platform',
-  description: 'Your trusted partner in mortgage lending',
+  title: 'AS Lending',
+  description: 'AS Lending',
 };
 
 const locales = ['en', 'es'];
@@ -31,8 +34,8 @@ export default async function RootLayout({
   }
 
   return (
-    <html lang={locale}>
-      <body className={inter.className}>
+    <html lang={locale} className={inter.className} suppressHydrationWarning>
+      <body className="min-h-screen antialiased bg-background text-foreground">
         <NextIntlClientProvider locale={locale} messages={messages}>
           <Navigation />
           <main className="min-h-screen bg-gray-50">

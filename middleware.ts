@@ -3,9 +3,15 @@ import { createMiddlewareClient } from '@supabase/auth-helpers-nextjs';
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
-const intlMiddleware = createMiddleware({
+export default createMiddleware({
+  // A list of all locales that are supported
   locales: ['en', 'es'],
-  defaultLocale: 'en'
+
+  // If this locale is matched, pathnames work without a prefix (e.g. `/about`)
+  defaultLocale: 'en',
+
+  // Redirect to default locale if no locale is found
+  localePrefix: 'always'
 });
 
 export async function middleware(req: NextRequest) {
@@ -20,5 +26,6 @@ export async function middleware(req: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/((?!api|_next|.*\\..*).*)']
+  // Match only internationalized pathnames
+  matcher: ['/', '/(en|es)/:path*']
 }; 

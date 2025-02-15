@@ -15,9 +15,9 @@
     "calculator": "Mortgage Calculator",
     "profile": "Profile"
   },
-  "home": {
-    "title": "Welcome to AS Funding",
-    "subtitle": "Your trusted partner in mortgage lending",
+  "Home": {
+    "title": "Welcome to AS Lending",
+    "subtitle": "Your trusted partner in lending solutions",
     "cta": "Get Started"
   },
   "auth": {
@@ -40,5 +40,11 @@
     "loanTerm": "Loan Term",
     "calculate": "Calculate",
     "monthlyPayment": "Monthly Payment"
+  },
+  "Navigation": {
+    "home": "Home",
+    "calculator": "Calculator",
+    "about": "About",
+    "contact": "Contact"
   }
 } 

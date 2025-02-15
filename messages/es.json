@@ -15,9 +15,9 @@
     "calculator": "Calculadora Hipotecaria",
     "profile": "Perfil"
   },
-  "home": {
-    "title": "Bienvenido a AS Funding",
-    "subtitle": "Tu socio de confianza en préstamos hipotecarios",
+  "Home": {
+    "title": "Bienvenido a AS Lending",
+    "subtitle": "Tu socio de confianza en soluciones de préstamos",
     "cta": "Comenzar"
   },
   "auth": {
@@ -40,5 +40,11 @@
     "loanTerm": "Plazo del Préstamo",
     "calculate": "Calcular",
     "monthlyPayment": "Pago Mensual"
+  },
+  "Navigation": {
+    "home": "Inicio",
+    "calculator": "Calculadora",
+    "about": "Acerca de",
+    "contact": "Contacto"
   }
 } 
