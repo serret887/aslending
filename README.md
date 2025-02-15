@@ -1,59 +1,48 @@
-# AS Funding Platform
+# AS Lending
 
-A modern lending platform built with Next.js, where realtors and clients can register, input data, and receive mortgage qualification estimates.
+A Next.js application for AS Lending platform.
 
-## Tech Stack
+## Development
 
-- Next.js 14 (App Router)
-- TypeScript
-- Tailwind CSS
-- Supabase (Authentication & Database)
-- next-intl (Internationalization)
-- Framer Motion (Animations)
-- HeadlessUI (UI Components)
+First, run the development server:
+
+```bash
+yarn install
+yarn dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+## Deployment to Vercel
+
+This project is configured for deployment on Vercel. To deploy:
+
+1. Push your code to a Git repository (GitHub, GitLab, or Bitbucket)
+2. Visit [Vercel](https://vercel.com) and sign in
+3. Click "New Project"
+4. Import your Git repository
+5. Configure your environment variables:
+   - `NEXT_PUBLIC_SUPABASE_URL`
+   - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+6. Click "Deploy"
+
+### Environment Variables
+
+Copy `.env.example` to `.env.local` for local development:
+
+```bash
+cp .env.example .env.local
+```
+
+Then update the values in `.env.local` with your actual configuration.
 
 ## Features
 
-- 🌐 Bilingual Support (English & Spanish)
-- 🔐 User Authentication
-- 👤 Profile Creation
-- 💰 Mortgage Calculator
-- 📱 Responsive Design
-- 📝 Blog Section
-
-## Getting Started
-
-1. Clone the repository
-2. Install dependencies:
-   ```bash
-   yarn install
-   ```
-3. Set up environment variables:
-   ```bash
-   cp .env.example .env.local
-   ```
-4. Update the `.env.local` file with your Supabase credentials
-
-5. Run the development server:
-   ```bash
-   yarn dev
-   ```
-
-6. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-## Environment Variables
-
-Create a `.env.local` file with the following variables:
-
-```env
-NEXT_PUBLIC_SUPABASE_URL=your-supabase-url
-NEXT_PUBLIC_SUPABASE_ANON_KEY=your-supabase-anon-key
-```
-
-## Deployment
-
-The application is deployed on Vercel. Each push to the main branch triggers an automatic deployment.
-
-## License
-
-MIT
+- Next.js 14 with App Router
+- Supabase Integration
+- Tailwind CSS for styling
+- Dark mode support
+- Internationalization ready
+- TypeScript
+- ESLint configuration
+- Responsive design
