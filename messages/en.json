@@ -1,0 +1,44 @@
+{
+  "common": {
+    "login": "Login",
+    "register": "Register",
+    "email": "Email",
+    "password": "Password",
+    "submit": "Submit",
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success"
+  },
+  "nav": {
+    "home": "Home",
+    "blog": "Blog",
+    "calculator": "Mortgage Calculator",
+    "profile": "Profile"
+  },
+  "home": {
+    "title": "Welcome to AS Funding",
+    "subtitle": "Your trusted partner in mortgage lending",
+    "cta": "Get Started"
+  },
+  "auth": {
+    "signIn": "Sign In",
+    "signUp": "Sign Up",
+    "forgotPassword": "Forgot Password?",
+    "noAccount": "Don't have an account?",
+    "hasAccount": "Already have an account?"
+  },
+  "profile": {
+    "title": "Profile Setup",
+    "personalInfo": "Personal Information",
+    "financialInfo": "Financial Information",
+    "documents": "Documents"
+  },
+  "calculator": {
+    "title": "Mortgage Calculator",
+    "loanAmount": "Loan Amount",
+    "interestRate": "Interest Rate",
+    "loanTerm": "Loan Term",
+    "calculate": "Calculate",
+    "monthlyPayment": "Monthly Payment"
+  }
+} 

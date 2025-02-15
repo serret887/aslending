@@ -1,0 +1,44 @@
+{
+  "buildCommand": "yarn build",
+  "outputDirectory": ".next",
+  "devCommand": "yarn dev",
+  "installCommand": "yarn install",
+  "framework": "nextjs",
+  "env": {
+    "NEXT_PUBLIC_SUPABASE_URL": "https://jccezjuynnonnmygvvbe.supabase.co",
+    "NEXT_PUBLIC_SUPABASE_ANON_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpjY2V6anV5bm5vbm5teWd2dmJlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mzk2NTA0MjMsImV4cCI6MjA1NTIyNjQyM30.utaGdDelIZPO2GS7vHlh7We_MIN1aR-0J4uKcaqleX4",
+    "NEXT_PUBLIC_DEFAULT_LOCALE": "en",
+    "NEXT_PUBLIC_AVAILABLE_LOCALES": "en,es"
+  },
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "X-XSS-Protection",
+          "value": "1; mode=block"
+        }
+      ]
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "/en",
+      "permanent": true
+    }
+  ],
+  "regions": ["iad1"],
+  "github": {
+    "enabled": true,
+    "silent": true
+  }
+} 

@@ -1,0 +1,44 @@
+{
+  "common": {
+    "login": "Iniciar Sesión",
+    "register": "Registrarse",
+    "email": "Correo Electrónico",
+    "password": "Contraseña",
+    "submit": "Enviar",
+    "loading": "Cargando...",
+    "error": "Error",
+    "success": "Éxito"
+  },
+  "nav": {
+    "home": "Inicio",
+    "blog": "Blog",
+    "calculator": "Calculadora Hipotecaria",
+    "profile": "Perfil"
+  },
+  "home": {
+    "title": "Bienvenido a AS Funding",
+    "subtitle": "Tu socio de confianza en préstamos hipotecarios",
+    "cta": "Comenzar"
+  },
+  "auth": {
+    "signIn": "Iniciar Sesión",
+    "signUp": "Registrarse",
+    "forgotPassword": "¿Olvidaste tu contraseña?",
+    "noAccount": "¿No tienes una cuenta?",
+    "hasAccount": "¿Ya tienes una cuenta?"
+  },
+  "profile": {
+    "title": "Configuración de Perfil",
+    "personalInfo": "Información Personal",
+    "financialInfo": "Información Financiera",
+    "documents": "Documentos"
+  },
+  "calculator": {
+    "title": "Calculadora Hipotecaria",
+    "loanAmount": "Monto del Préstamo",
+    "interestRate": "Tasa de Interés",
+    "loanTerm": "Plazo del Préstamo",
+    "calculate": "Calcular",
+    "monthlyPayment": "Pago Mensual"
+  }
+} 
