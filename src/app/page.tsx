@@ -2,6 +2,7 @@ import { redirect } from 'next/navigation';
 import { defaultLocale } from '@/i18n';
 import Image from "next/image";
 
+// This page only renders if there is no locale prefix
 export default function RootPage() {
   redirect(`/${defaultLocale}`);
 }

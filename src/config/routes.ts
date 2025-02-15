@@ -16,6 +16,7 @@ export const routes = {
 } as const;
 
 export const getLocalizedRoute = (route: string, locale: string = defaultLocale) => {
+  console.log('getLocalizedRoute', route, locale);
   // Handle root route specially
   if (route === '/') {
     return `/${locale}`;

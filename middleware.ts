@@ -1,38 +1,30 @@
+import createMiddleware from 'next-intl/middleware';
+import { NextResponse, type NextRequest } from 'next/server';
 import { createMiddlewareClient } from '@supabase/auth-helpers-nextjs';
-import { NextResponse } from 'next/server';
-import type { NextRequest } from 'next/server';
-import { i18nMiddleware } from './src/middleware/i18n';
-import { defaultLocale } from './src/i18n';
 
-// This function can be marked `async` if using `await` inside
+const locales = ['en', 'es'];
+
+// First handle internationalization
+const intlMiddleware = createMiddleware({
+  locales,
+  defaultLocale: 'en',
+  localePrefix: 'always'
+});
+
+// Then handle Supabase auth
 export async function middleware(request: NextRequest) {
   const res = NextResponse.next();
   const supabase = createMiddlewareClient({ req: request, res });
 
+  console.log('middleware');
   // Refresh session if expired
   await supabase.auth.getSession();
 
-  // Handle direct auth routes access by redirecting to localized version
-  const pathname = request.nextUrl.pathname;
-  if (pathname.startsWith('/auth/')) {
-    return NextResponse.redirect(
-      new URL(`/${defaultLocale}${pathname}`, request.url)
-    );
-  }
-
   // Handle internationalization
-  return i18nMiddleware(request);
+  return intlMiddleware(request);
 }
 
+// Match all paths except api, static files, etc
 export const config = {
-  matcher: [
-    // Match all routes except for
-    // - api (API routes)
-    // - _next (Next.js internals)
-    // - /_vercel (Vercel internals)
-    // - static files
-    '/((?!api|_next|_vercel|.*\\.[\\w]+$).*)',
-    // Also match /auth routes
-    '/auth/:path*'
-  ]
+  matcher: ['/((?!api|_next|_vercel|.*\\..*).*)']
 }; 
