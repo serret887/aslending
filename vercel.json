@@ -1,10 +1,11 @@
 {
-  "buildCommand": "yarn build",
-  "outputDirectory": ".next",
-  "devCommand": "yarn dev",
+  "version": 2,
+  "buildCommand": "next build",
+  "devCommand": "next dev",
   "installCommand": "yarn install",
   "framework": "nextjs",
   "env": {
+    "NEXT_PUBLIC_VERCEL_ENV": "production",
     "NEXT_PUBLIC_SUPABASE_URL": "https://jccezjuynnonnmygvvbe.supabase.co",
     "NEXT_PUBLIC_SUPABASE_ANON_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpjY2V6anV5bm5vbm5teWd2dmJlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mzk2NTA0MjMsImV4cCI6MjA1NTIyNjQyM30.utaGdDelIZPO2GS7vHlh7We_MIN1aR-0J4uKcaqleX4",
     "NEXT_PUBLIC_DEFAULT_LOCALE": "en",
