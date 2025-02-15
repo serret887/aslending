@@ -21,11 +21,17 @@
     "cta": "Get Started"
   },
   "auth": {
-    "signIn": "Sign In",
-    "signUp": "Sign Up",
-    "forgotPassword": "Forgot Password?",
+    "welcome": "Welcome back",
+    "signIn": "Sign in",
+    "signUp": "Sign up",
+    "email": "Email address",
+    "password": "Password",
+    "loading": "Loading...",
     "noAccount": "Don't have an account?",
-    "hasAccount": "Already have an account?"
+    "hasAccount": "Already have an account?",
+    "verifyEmail": "Check your email",
+    "verifyEmailInstructions": "We sent you a verification link. Please check your email to verify your account.",
+    "backToLogin": "Return to sign in"
   },
   "profile": {
     "title": "Profile Setup",

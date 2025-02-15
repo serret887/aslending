@@ -21,11 +21,17 @@
     "cta": "Comenzar"
   },
   "auth": {
-    "signIn": "Iniciar Sesión",
+    "welcome": "Bienvenido de nuevo",
+    "signIn": "Iniciar sesión",
     "signUp": "Registrarse",
-    "forgotPassword": "¿Olvidaste tu contraseña?",
+    "email": "Correo electrónico",
+    "password": "Contraseña",
+    "loading": "Cargando...",
     "noAccount": "¿No tienes una cuenta?",
-    "hasAccount": "¿Ya tienes una cuenta?"
+    "hasAccount": "¿Ya tienes una cuenta?",
+    "verifyEmail": "Revisa tu correo",
+    "verifyEmailInstructions": "Te hemos enviado un enlace de verificación. Por favor, revisa tu correo para verificar tu cuenta.",
+    "backToLogin": "Volver a iniciar sesión"
   },
   "profile": {
     "title": "Configuración de Perfil",

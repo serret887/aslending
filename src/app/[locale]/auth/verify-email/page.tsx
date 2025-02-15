@@ -4,9 +4,12 @@ import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { EnvelopeIcon } from '@heroicons/react/24/outline';
+import { routes } from '@/config/routes';
+import { useParams } from 'next/navigation';
 
 export default function VerifyEmailPage() {
-  const t = useTranslations();
+  const t = useTranslations('auth');
+  const { locale } = useParams();
 
   return (
     <div className="flex min-h-screen flex-col justify-center py-12 sm:px-6 lg:px-8 bg-gray-50">
@@ -24,18 +27,17 @@ export default function VerifyEmailPage() {
             />
           </div>
           <h2 className="mt-6 text-2xl font-bold tracking-tight text-gray-900">
-            Check your email
+            {t('verifyEmail')}
           </h2>
           <p className="mt-2 text-sm text-gray-600">
-            We sent you a verification link. Please check your email to verify your
-            account.
+            {t('verifyEmailInstructions')}
           </p>
           <div className="mt-6">
             <Link
-              href="/auth/login"
+              href={`/${locale}${routes.auth.login}`}
               className="text-sm font-medium text-indigo-600 hover:text-indigo-500"
             >
-              Return to sign in
+              {t('backToLogin')}
             </Link>
           </div>
         </motion.div>
