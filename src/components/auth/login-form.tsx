@@ -7,9 +7,9 @@ import { Label } from "@/components/ui/label"
 import { useTranslations } from "next-intl"
 import Link from 'next/link'
 import { useState } from 'react'
-import { useRouter } from 'next/navigation'
+import { useRouter, useParams } from 'next/navigation'
 import { createClient } from '@/lib/supabase'
-import { routes } from '@/config/routes'
+import { routes, getLocalizedRoute } from '@/config/routes'
 
 export function LoginForm({
   className,
@@ -17,6 +17,8 @@ export function LoginForm({
 }: React.ComponentProps<"div">) {
   const t = useTranslations('auth');
   const router = useRouter();
+  const params = useParams();
+  const locale = params.locale as string;
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [formData, setFormData] = useState({
@@ -46,7 +48,7 @@ export function LoginForm({
         throw signInError;
       }
 
-      router.push(routes.dashboard);
+      router.push(getLocalizedRoute(routes.dashboard, locale));
     } catch (err) {
       setError(err instanceof Error ? err.message : t('loginError'));
     } finally {
@@ -148,7 +150,10 @@ export function LoginForm({
 
             <div className="text-center">
               <span className="text-sm text-gray-500">{t('noAccount')}</span>{" "}
-              <Link href="/auth/register" className="text-sm font-medium text-[#E31837] hover:underline">
+              <Link 
+                href={getLocalizedRoute(routes.auth.register, locale)} 
+                className="text-sm font-medium text-[#E31837] hover:underline"
+              >
                 {t('signUp')}
               </Link>
             </div>
@@ -165,11 +170,17 @@ export function LoginForm({
       
       <p className="mt-4 text-center text-sm text-gray-500">
         {t('termsNotice')}{" "}
-        <Link href="#" className="text-[#E31837] hover:underline">
+        <Link 
+          href={getLocalizedRoute(routes.about, locale)} 
+          className="text-[#E31837] hover:underline"
+        >
           {t('termsOfService')}
         </Link>{" "}
         {t('and')}{" "}
-        <Link href="#" className="text-[#E31837] hover:underline">
+        <Link 
+          href={getLocalizedRoute(routes.about, locale)} 
+          className="text-[#E31837] hover:underline"
+        >
           {t('privacyPolicy')}
         </Link>
       </p>

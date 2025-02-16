@@ -5,6 +5,7 @@ import { Fragment } from 'react';
 import { Disclosure, Menu, Transition } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import { GlobeAltIcon } from '@heroicons/react/24/solid';
+import { routes, getLocalizedRoute } from '@/config/routes';
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ');
@@ -16,9 +17,9 @@ export default function Navigation() {
   const currentLocale = pathname.split('/')[1];
 
   const navigation = [
-    { name: t('nav.home'), href: '/' },
-    { name: t('nav.blog'), href: '/blog' },
-    { name: t('nav.calculator'), href: '/calculator' },
+    { name: t('nav.home'), href: routes.home },
+    { name: t('nav.calculator'), href: routes.calculator },
+    { name: t('nav.about'), href: routes.about },
   ];
 
   const languages = [
@@ -34,7 +35,7 @@ export default function Navigation() {
             <div className="flex h-16 justify-between">
               <div className="flex">
                 <div className="flex flex-shrink-0 items-center">
-                  <Link href="/" className="text-xl font-bold text-indigo-600">
+                  <Link href={getLocalizedRoute(routes.home, currentLocale)} className="text-xl font-bold text-indigo-600">
                     AS Funding
                   </Link>
                 </div>
@@ -42,9 +43,9 @@ export default function Navigation() {
                   {navigation.map((item) => (
                     <Link
                       key={item.href}
-                      href={item.href}
+                      href={getLocalizedRoute(item.href, currentLocale)}
                       className={classNames(
-                        pathname === item.href
+                        pathname === getLocalizedRoute(item.href, currentLocale)
                           ? 'border-indigo-500 text-gray-900'
                           : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700',
                         'inline-flex items-center border-b-2 px-1 pt-1 text-sm font-medium'
@@ -93,13 +94,13 @@ export default function Navigation() {
                 {/* Auth Links */}
                 <div className="ml-6 flex items-center space-x-4">
                   <Link
-                    href="/auth/login"
+                    href={getLocalizedRoute(routes.auth.login, currentLocale)}
                     className="text-gray-500 hover:text-gray-700"
                   >
                     {t('common.login')}
                   </Link>
                   <Link
-                    href="/auth/register"
+                    href={getLocalizedRoute(routes.auth.register, currentLocale)}
                     className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                   >
                     {t('common.register')}
@@ -128,9 +129,9 @@ export default function Navigation() {
                 <Disclosure.Button
                   key={item.href}
                   as={Link}
-                  href={item.href}
+                  href={getLocalizedRoute(item.href, currentLocale)}
                   className={classNames(
-                    pathname === item.href
+                    pathname === getLocalizedRoute(item.href, currentLocale)
                       ? 'border-indigo-500 bg-indigo-50 text-indigo-700'
                       : 'border-transparent text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700',
                     'block border-l-4 py-2 pl-3 pr-4 text-base font-medium'

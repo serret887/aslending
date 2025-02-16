@@ -1,11 +1,12 @@
-import { createServerClient, type CookieOptions } from '@supabase/ssr';
+import { createServerClient } from '@supabase/ssr';
 import { cookies } from 'next/headers';
 import { NextResponse } from 'next/server';
-import { routes } from '@/config/routes';
+import { routes, getLocalizedRoute } from '@/config/routes';
 
 export async function GET(request: Request) {
   const requestUrl = new URL(request.url);
   const code = requestUrl.searchParams.get('code');
+  const locale = requestUrl.pathname.split('/')[1]; // Get locale from URL path
 
   console.log('GET callback', code);
   if (code) {
@@ -21,5 +22,5 @@ export async function GET(request: Request) {
   }
 
   // URL to redirect to after sign in process completes
-  return NextResponse.redirect(new URL(routes.dashboard, request.url));
+  return NextResponse.redirect(new URL(getLocalizedRoute(routes.dashboard, locale), request.url));
 } 

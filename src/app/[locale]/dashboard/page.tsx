@@ -14,6 +14,8 @@ import {
   SidebarTrigger,
 } from "@/components/ui/sidebar"
 import { getTranslations } from "next-intl/server"
+import Link from 'next/link'
+import { routes, getLocalizedRoute } from '@/config/routes'
 
 export default async function DashboardPage({
   params: { locale },
@@ -33,8 +35,10 @@ export default async function DashboardPage({
             <Breadcrumb>
               <BreadcrumbList>
                 <BreadcrumbItem className="hidden md:block">
-                  <BreadcrumbLink href="/dashboard">
-                    {t("overview")}
+                  <BreadcrumbLink asChild>
+                    <Link href={getLocalizedRoute(routes.dashboard, locale)}>
+                      {t("overview")}
+                    </Link>
                   </BreadcrumbLink>
                 </BreadcrumbItem>
                 <BreadcrumbSeparator className="hidden md:block" />
