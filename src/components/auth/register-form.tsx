@@ -3,18 +3,20 @@
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { createBrowserClient } from '@supabase/ssr';
-import { useRouter } from 'next/navigation';
+import { useRouter } from '@/i18n/routing';
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { toast } from 'react-hot-toast';
+import { routes, getLocalizedRoute } from '@/config/routes';
 
 export default function RegisterForm({
   className,
+  locale,
   ...props
-}: React.ComponentProps<"div">) {
+}: React.ComponentProps<"div"> & { locale: string }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState<string | null>(null);
@@ -45,7 +47,7 @@ export default function RegisterForm({
 
       if (error) throw error;
 
-      router.push('/profile/create/personal');
+      router.push(getLocalizedRoute(routes.profile.create.personal, locale));
       toast.success(t('registrationSuccess'));
     } catch (error: any) {
       setError(error.message);

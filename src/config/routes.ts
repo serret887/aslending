@@ -10,7 +10,14 @@ export const routes = {
   },
   dashboard: '/dashboard',
   calculator: '/calculator',
-  profile: '/profile',
+  profile: {
+    root: '/profile',
+    create: {
+      personal: '/profile/create/personal',
+      financial: '/profile/create/financial',
+      documents: '/profile/create/documents',
+    }
+  },
   about: '/about',
   contact: '/contact',
 } as const;

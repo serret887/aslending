@@ -4,7 +4,7 @@ import * as React from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
-import { useRouter } from 'next/navigation';
+import { useRouter } from '@/i18n/routing';
 import { Button } from '@/components/ui/button';
 import {
   Form,
@@ -16,6 +16,7 @@ import {
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { toast } from 'react-hot-toast';
+import { routes, getLocalizedRoute } from '@/config/routes';
 
 const personalInfoSchema = z.object({
   firstName: z.string().min(2, 'First name must be at least 2 characters'),
@@ -53,7 +54,7 @@ export function PersonalInfoForm({ t, locale }: PersonalInfoFormProps) {
     setIsLoading(true);
     try {
       // TODO: Save personal info to Supabase
-      router.push(`/${locale}/profile/create/financial`);
+      router.push(getLocalizedRoute(routes.profile.create.financial, locale));
     } catch (error) {
       toast.error('Something went wrong. Please try again.');
     } finally {

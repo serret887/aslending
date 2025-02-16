@@ -67,25 +67,17 @@ const data = {
     },
    
     {
-      title: "Settings",
-      url: "#",
+      title: "Tools",
+      url: "/tools",
       icon: Settings2,
       items: [
         {
-          title: "General",
-          url: "#",
+          title: "Affordability Calculator",
+          url: "/tools/affordability-calculator",
         },
         {
-          title: "Team",
-          url: "#",
-        },
-        {
-          title: "Billing",
-          url: "#",
-        },
-        {
-          title: "Limits",
-          url: "#",
+          title: "Loan Calculator",
+          url: "/tools/loan-calculator",
         },
       ],
     },

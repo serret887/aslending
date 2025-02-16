@@ -5,9 +5,9 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { useTranslations } from "next-intl"
-import Link from 'next/link'
 import { useState } from 'react'
-import { useRouter, useParams } from 'next/navigation'
+import { Link, useRouter } from '@/i18n/routing'
+import { useParams } from 'next/navigation'
 import { createClient } from '@/lib/supabase'
 import { routes, getLocalizedRoute } from '@/config/routes'
 

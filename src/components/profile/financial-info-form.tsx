@@ -4,7 +4,7 @@ import * as React from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
-import { useRouter } from 'next/navigation';
+import { useRouter } from '@/i18n/routing';
 import { Button } from '@/components/ui/button';
 import {
   Form,
@@ -23,6 +23,7 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { toast } from 'react-hot-toast';
+import { routes, getLocalizedRoute } from '@/config/routes';
 
 const financialInfoSchema = z.object({
   annualIncome: z.string().min(1, 'Annual income is required'),
@@ -74,7 +75,7 @@ export function FinancialInfoForm({ t, locale }: FinancialInfoFormProps) {
     setIsLoading(true);
     try {
       // TODO: Save financial info to Supabase
-      router.push(`/${locale}/profile/create/documents`);
+      router.push(getLocalizedRoute(routes.profile.create.documents, locale));
     } catch (error) {
       toast.error('Something went wrong. Please try again.');
     } finally {
@@ -178,7 +179,7 @@ export function FinancialInfoForm({ t, locale }: FinancialInfoFormProps) {
             type="button"
             variant="outline"
             className="w-full"
-            onClick={() => router.push(`/${locale}/profile/create/personal`)}
+            onClick={() => router.push(getLocalizedRoute(routes.profile.create.personal, locale))}
           >
             {t.back}
           </Button>

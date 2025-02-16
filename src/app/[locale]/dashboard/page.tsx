@@ -14,7 +14,7 @@ import {
   SidebarTrigger,
 } from "@/components/ui/sidebar"
 import { getTranslations } from "next-intl/server"
-import Link from 'next/link'
+import { Link } from '@/i18n/routing'
 import { routes, getLocalizedRoute } from '@/config/routes'
 
 export default async function DashboardPage({

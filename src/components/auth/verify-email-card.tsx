@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { EnvelopeIcon } from '@heroicons/react/24/outline';
-import Link from 'next/link';
+import { Link } from '@/i18n/routing';
 import { routes } from '@/config/routes';
 
 interface VerifyEmailCardProps {

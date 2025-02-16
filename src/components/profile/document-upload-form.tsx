@@ -1,10 +1,11 @@
 'use client';
 
 import * as React from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter } from '@/i18n/routing';
 import { Button } from '@/components/ui/button';
 import { toast } from 'react-hot-toast';
 import { Upload } from 'lucide-react';
+import { routes, getLocalizedRoute } from '@/config/routes';
 
 interface DocumentUploadFormProps {
   t: {
@@ -38,7 +39,7 @@ export function DocumentUploadForm({ t, locale }: DocumentUploadFormProps) {
 
     try {
       // TODO: Upload files to Supabase storage
-      router.push(`/${locale}/dashboard`);
+      router.push(getLocalizedRoute(routes.dashboard, locale));
     } catch (error) {
       toast.error('Something went wrong. Please try again.');
     } finally {
@@ -102,7 +103,7 @@ export function DocumentUploadForm({ t, locale }: DocumentUploadFormProps) {
           type="button"
           variant="outline"
           className="w-full"
-          onClick={() => router.push(`/${locale}/profile/create/financial`)}
+          onClick={() => router.push(getLocalizedRoute(routes.profile.create.financial, locale))}
         >
           {t.back}
         </Button>
