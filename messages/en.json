@@ -13,7 +13,13 @@
     "home": "Home",
     "blog": "Blog",
     "calculator": "Mortgage Calculator",
-    "profile": "Profile"
+    "profile": "Profile",
+    "buy": "Buy",
+    "refinance": "Refinance",
+    "rates": "Rates",
+    "loanOptions": "Loan Options",
+    "signIn": "Sign in",
+    "applyNow": "Apply now"
   },
   "Home": {
     "title": "Welcome to AS Lending",

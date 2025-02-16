@@ -13,7 +13,13 @@
     "home": "Inicio",
     "blog": "Blog",
     "calculator": "Calculadora Hipotecaria",
-    "profile": "Perfil"
+    "profile": "Perfil",
+    "buy": "Comprar",
+    "refinance": "Refinanciar",
+    "rates": "Tasas",
+    "loanOptions": "Opciones de Préstamo",
+    "signIn": "Iniciar sesión",
+    "applyNow": "Aplicar ahora"
   },
   "Home": {
     "title": "Bienvenido a AS Lending",
