@@ -18,7 +18,50 @@
   "Home": {
     "title": "Bienvenido a AS Lending",
     "subtitle": "Tu socio de confianza en soluciones de préstamos",
-    "cta": "Comenzar"
+    "cta": "Comenzar",
+    "hero": {
+      "title": "Encuentra Tu Casa Soñada Hoy",
+      "subtitle": "Comienza con nuestra calculadora de hipotecas y encuentra las mejores tasas para tu nuevo hogar"
+    },
+    "calculator": {
+      "title": "Calculadora de Hipoteca",
+      "homePrice": "Precio de la Casa",
+      "downPayment": "Pago Inicial",
+      "calculate": "Calcular Pago Mensual"
+    },
+    "features": {
+      "title": "Por Qué Elegirnos",
+      "purchase": {
+        "title": "Compra de Casa",
+        "description": "Encuentra la hipoteca perfecta para tu nuevo hogar con tasas competitivas y términos flexibles"
+      },
+      "refinance": {
+        "title": "Refinanciamiento",
+        "description": "Reduce tus pagos mensuales u obtén efectivo del valor de tu casa con nuestras opciones de refinanciamiento"
+      },
+      "process": {
+        "title": "Proceso Rápido",
+        "description": "Obtén la aprobación rápidamente con nuestro proceso digital simplificado de solicitud de hipoteca"
+      }
+    },
+    "testimonials": {
+      "title": "Lo Que Dicen Nuestros Clientes",
+      "1": {
+        "name": "Juan Pérez",
+        "role": "Comprador por Primera Vez",
+        "content": "El proceso fue increíblemente sencillo, y el equipo fue muy útil en cada paso"
+      },
+      "2": {
+        "name": "María García",
+        "role": "Cliente de Refinanciamiento",
+        "content": "Ahorré cientos en mis pagos mensuales gracias a sus excelentes opciones de refinanciamiento"
+      },
+      "3": {
+        "name": "Carlos Rodríguez",
+        "role": "Compra de Casa",
+        "content": "Su plataforma digital hizo que solicitar una hipoteca fuera simple y sin estrés"
+      }
+    }
   },
   "auth": {
     "welcome": "Bienvenido de nuevo",

@@ -1,4 +1,4 @@
-import '../globals.css';
+import '@/app/globals.css';
 import {NextIntlClientProvider} from 'next-intl';
 import {getMessages} from 'next-intl/server';
 import {notFound} from 'next/navigation';
@@ -25,7 +25,7 @@ export default async function LocaleLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale}>
+    <html lang={locale} data-lt-installed="true">
       <body>
         <NextIntlClientProvider messages={messages}>
           {children}

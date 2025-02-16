@@ -18,7 +18,50 @@
   "Home": {
     "title": "Welcome to AS Lending",
     "subtitle": "Your trusted partner in lending solutions",
-    "cta": "Get Started"
+    "cta": "Get Started",
+    "hero": {
+      "title": "Find Your Dream Home Today",
+      "subtitle": "Get started with our easy mortgage calculator and find the best rates for your new home"
+    },
+    "calculator": {
+      "title": "Mortgage Calculator",
+      "homePrice": "Home Price",
+      "downPayment": "Down Payment",
+      "calculate": "Calculate Monthly Payment"
+    },
+    "features": {
+      "title": "Why Choose Us",
+      "purchase": {
+        "title": "Home Purchase",
+        "description": "Find the perfect mortgage for your new home with competitive rates and flexible terms"
+      },
+      "refinance": {
+        "title": "Refinance",
+        "description": "Lower your monthly payments or get cash from your home equity with our refinancing options"
+      },
+      "process": {
+        "title": "Fast Process",
+        "description": "Get approved quickly with our streamlined digital mortgage application process"
+      }
+    },
+    "testimonials": {
+      "title": "What Our Clients Say",
+      "1": {
+        "name": "John Smith",
+        "role": "First-time Homebuyer",
+        "content": "The process was incredibly smooth, and the team was helpful every step of the way"
+      },
+      "2": {
+        "name": "Sarah Johnson",
+        "role": "Refinance Customer",
+        "content": "I saved hundreds on my monthly payments thanks to their excellent refinancing options"
+      },
+      "3": {
+        "name": "Michael Brown",
+        "role": "Home Purchase",
+        "content": "Their digital platform made applying for a mortgage simple and stress-free"
+      }
+    }
   },
   "auth": {
     "welcome": "Welcome back",
