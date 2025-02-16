@@ -8,7 +8,7 @@ import { useTranslations } from "next-intl"
 import Link from 'next/link'
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { supabase } from '@/lib/supabase'
+import { createClient } from '@/lib/supabase'
 import { routes } from '@/config/routes'
 
 export function LoginForm({
@@ -37,7 +37,7 @@ export function LoginForm({
     setError(null);
 
     try {
-      const { data, error: signInError } = await supabase.auth.signInWithPassword({
+      const { data, error: signInError } = await createClient().auth.signInWithPassword({
         email: formData.email,
         password: formData.password,
       });
