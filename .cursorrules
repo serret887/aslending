@@ -26,6 +26,7 @@ Technical preferences:
 - Use Next.js 14 React Email for email templates
 - Use Next.js 14 React Hot Toast for notifications
 - Use Next.js 14 React Icons for icons
+- Use yarn for package manager
 
 General preferences:
 - Follow the user's requirements carefully & to the letter.

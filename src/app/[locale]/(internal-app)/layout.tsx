@@ -1,5 +1,6 @@
 import { AppSidebar } from "@/components/app-sidebar"
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar"
+import { Toaster } from "react-hot-toast"
 
 export default function DashboardLayout({
   children,
@@ -12,6 +13,7 @@ export default function DashboardLayout({
       <SidebarInset>
         {children}
       </SidebarInset>
+      <Toaster position="top-right" />
     </SidebarProvider>
   )
 } 

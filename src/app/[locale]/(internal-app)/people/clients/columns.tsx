@@ -32,6 +32,7 @@ export const columns: ColumnDef<Client>[] = [
         }
         onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
         aria-label="Select all"
+        className="ml-4"
       />
     ),
     cell: ({ row }) => (
@@ -39,6 +40,7 @@ export const columns: ColumnDef<Client>[] = [
         checked={row.getIsSelected()}
         onCheckedChange={(value) => row.toggleSelected(!!value)}
         aria-label="Select row"
+        className="ml-4"
       />
     ),
     enableSorting: false,
@@ -46,28 +48,39 @@ export const columns: ColumnDef<Client>[] = [
   },
   {
     accessorKey: "name",
-    header: ({ column }) => {
-      return (
-        <Button
-          variant="ghost"
-          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-        >
-          Name
-          <ArrowUpDown className="ml-2 h-4 w-4" />
-        </Button>
-      )
-    },
-    cell: ({ row }) => <div>{row.getValue("name")}</div>,
+    header: ({ column }) => (
+      <Button
+        variant="ghost"
+        onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+      >
+        Name
+        <ArrowUpDown className="ml-2 h-4 w-4" />
+      </Button>
+    ),
+    cell: ({ row }) => row.getValue("name"),
   },
   {
     accessorKey: "phoneNumber",
-    header: "Phone Number",
-    cell: ({ row }) => <div>{row.getValue("phoneNumber")}</div>,
+    header: ({ column }) => (
+      <Button
+        variant="ghost"
+        onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+      >
+        Phone Number
+        <ArrowUpDown className="ml-2 h-4 w-4" />
+      </Button>
+    ),
+    cell: ({ row }) => (
+      <div className="flex items-center whitespace-nowrap">
+        <span className="text-muted-foreground">📞</span>
+        <span className="ml-2">{row.getValue("phoneNumber")}</span>
+      </div>
+    ),
   },
   {
     accessorKey: "maxLoanAmount",
-    header: ({ column }) => {
-      return (
+    header: ({ column }) => (
+      <div className="text-right">
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
@@ -75,8 +88,8 @@ export const columns: ColumnDef<Client>[] = [
           Max Loan Amount
           <ArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
-      )
-    },
+      </div>
+    ),
     cell: ({ row }) => {
       const amount = parseFloat(row.getValue("maxLoanAmount"))
       const formatted = new Intl.NumberFormat("en-US", {
@@ -88,8 +101,8 @@ export const columns: ColumnDef<Client>[] = [
   },
   {
     accessorKey: "updatedAt",
-    header: ({ column }) => {
-      return (
+    header: ({ column }) => (
+      <div className="text-right">
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
@@ -97,35 +110,37 @@ export const columns: ColumnDef<Client>[] = [
           Last Updated
           <ArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
-      )
-    },
+      </div>
+    ),
     cell: ({ row }) => {
       const date = new Date(row.getValue("updatedAt"))
-      return <div>{date.toLocaleDateString()}</div>
+      return <div className="text-right">{date.toLocaleDateString()}</div>
     },
   },
   {
     id: "actions",
-    enableHiding: false,
+    header: () => null,
     cell: ({ row }) => {
       const client = row.original
 
       return (
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="ghost" className="h-8 w-8 p-0">
-              <span className="sr-only">Open menu</span>
-              <MoreHorizontal className="h-4 w-4" />
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end">
-            <DropdownMenuLabel>Actions</DropdownMenuLabel>
-            <DropdownMenuItem>Create Strategy</DropdownMenuItem>
-            <DropdownMenuItem>Pre-approve</DropdownMenuItem>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem>Get Mortgage</DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
+        <div className="text-right">
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="ghost" className="h-8 w-8 p-0">
+                <span className="sr-only">Open menu</span>
+                <MoreHorizontal className="h-4 w-4" />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end">
+              <DropdownMenuLabel>Actions</DropdownMenuLabel>
+              <DropdownMenuItem>Create Strategy</DropdownMenuItem>
+              <DropdownMenuItem>Pre-approve</DropdownMenuItem>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem>Get Mortgage</DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </div>
       )
     },
   },

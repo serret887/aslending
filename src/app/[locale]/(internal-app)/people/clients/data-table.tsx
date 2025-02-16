@@ -13,6 +13,7 @@ import {
   useReactTable,
 } from "@tanstack/react-table"
 import { ChevronDown } from "lucide-react"
+import { toast } from "react-hot-toast"
 
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -33,6 +34,7 @@ import {
 
 import { columns } from "./columns"
 import type { Client } from "./columns"
+import { BulkActionsModal } from "./bulk-actions-modal"
 
 interface DataTableProps {
   data: Client[]
@@ -62,6 +64,16 @@ export function DataTable({ data }: DataTableProps) {
       rowSelection,
     },
   })
+
+  const selectedClients = React.useMemo(() => {
+    const selectedRows = table.getFilteredSelectedRowModel().rows
+    return selectedRows.map((row) => row.original)
+  }, [table.getFilteredSelectedRowModel().rows])
+
+  const handleBulkAction = React.useCallback((action: string) => {
+    // Here you would implement the actual bulk action logic
+    toast.success(`Executing ${action} for ${selectedClients.length} clients`)
+  }, [selectedClients.length])
 
   return (
     <div className="w-full">
@@ -100,6 +112,12 @@ export function DataTable({ data }: DataTableProps) {
               })}
           </DropdownMenuContent>
         </DropdownMenu>
+        {selectedClients.length > 0 && (
+          <BulkActionsModal
+            selectedClients={selectedClients}
+            onAction={handleBulkAction}
+          />
+        )}
       </div>
       <div className="rounded-md border">
         <Table>
