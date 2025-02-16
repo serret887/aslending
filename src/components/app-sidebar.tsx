@@ -13,6 +13,7 @@ import {
   PieChart,
   Settings2,
   SquareTerminal,
+  Users,
 } from "lucide-react"
 
 import { NavMain } from "@/components/nav-main"
@@ -64,12 +65,28 @@ const data = {
         },
         
       ],
+    },  
+    {
+      title: "People",
+      url: "/people",
+      icon: Users,
+      isActive: true,
+      items: [
+        {
+          title: "Clients",
+          url: "/people/clients",
+        },
+        {
+          title: "Loan Calculator",
+          url: "/tools/loan-calculator",
+        },
+      ],
     },
-   
     {
       title: "Tools",
       url: "/tools",
       icon: Settings2,
+      isActive: true,
       items: [
         {
           title: "Affordability Calculator",
