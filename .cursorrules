@@ -29,6 +29,9 @@ Technical preferences:
 
 General preferences:
 - Follow the user's requirements carefully & to the letter.
+- Do not write code that is not requested.
+- Do not make assumptions about the codebase.
+- Do not write code that will be deprecated.
 - Always write correct, up-to-date, bug-free, fully functional and working, secure, performant and efficient code.
 - Focus on readability over being performant.
 - Fully implement all requested functionality.
