@@ -1,3 +1,4 @@
+'use client'
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
@@ -5,12 +6,53 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { useTranslations } from "next-intl"
 import Link from 'next/link'
+import { useState } from 'react'
+import { useRouter } from 'next/navigation'
+import { supabase } from '@/lib/supabase'
+import { routes } from '@/config/routes'
 
 export function LoginForm({
   className,
   ...props
 }: React.ComponentProps<"div">) {
   const t = useTranslations('auth');
+  const router = useRouter();
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [formData, setFormData] = useState({
+    email: '',
+    password: ''
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData(prev => ({
+      ...prev,
+      [e.target.id]: e.target.value
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsLoading(true);
+    setError(null);
+
+    try {
+      const { data, error: signInError } = await supabase.auth.signInWithPassword({
+        email: formData.email,
+        password: formData.password,
+      });
+
+      if (signInError) {
+        throw signInError;
+      }
+
+      router.push(routes.dashboard);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : t('loginError'));
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   return (
     <div className={cn("w-full max-w-[1000px] mx-auto", className)} {...props}>
@@ -24,15 +66,24 @@ export function LoginForm({
               </p>
             </div>
             
-            <form className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-4">
+              {error && (
+                <div className="p-3 text-sm text-red-500 bg-red-50 rounded-lg">
+                  {error}
+                </div>
+              )}
+              
               <div className="space-y-2">
                 <Label htmlFor="email" className="text-sm font-medium">Email</Label>
                 <Input
                   id="email"
                   type="email"
-                  placeholder="m@example.com"
+                  value={formData.email}
+                  onChange={handleChange}
+                  placeholder="username@example.com"
                   className="h-11 text-base border border-gray-200 rounded-lg"
                   required
+                  disabled={isLoading}
                 />
               </div>
               
@@ -48,17 +99,21 @@ export function LoginForm({
                 </div>
                 <Input 
                   id="password" 
-                  type="password" 
+                  type="password"
+                  value={formData.password}
+                  onChange={handleChange}
                   className="h-11 text-base border border-gray-200 rounded-lg"
-                  required 
+                  required
+                  disabled={isLoading}
                 />
               </div>
 
               <Button 
                 type="submit" 
                 className="w-full h-11 text-base bg-black hover:bg-black/90 text-white rounded-lg"
+                disabled={isLoading}
               >
-                {t('login')}
+                {isLoading ? t('loggingIn') : t('login')}
               </Button>
             </form>
 

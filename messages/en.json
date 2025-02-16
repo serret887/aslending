@@ -76,13 +76,18 @@
     "password": "Password",
     "forgotPassword": "Forgot password?",
     "login": "Login",
+    "loggingIn": "Logging in...",
+    "loginError": "Failed to login. Please check your credentials and try again.",
     "orContinueWith": "Or continue with",
     "noAccount": "Don't have an account?",
     "signUp": "Sign up",
     "termsNotice": "By clicking continue, you agree to our",
     "termsOfService": "Terms of Service",
     "and": "and",
-    "privacyPolicy": "Privacy Policy"
+    "privacyPolicy": "Privacy Policy",
+    "verifyEmail": "Verify your email",
+    "verifyEmailInstructions": "Please check your email for a verification link. Click the link to verify your account.",
+    "backToLogin": "Back to login"
   },
   "profile": {
     "title": "Profile Setup",

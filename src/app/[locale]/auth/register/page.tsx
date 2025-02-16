@@ -1,9 +1,7 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import Link from 'next/link';
-import RegisterForm from '@/components/auth/RegisterForm';
-import { routes, getLocalizedRoute } from '@/config/routes';
+import RegisterForm from '@/components/auth/register-form';
 import { useParams } from 'next/navigation';
 
 export default function RegisterPage() {
