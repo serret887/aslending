@@ -1,4 +1,4 @@
-import { locales, defaultLocale } from '@/i18n';
+import { routing } from '@/i18n/routing';
 
 export const routes = {
   home: '/',
@@ -15,7 +15,7 @@ export const routes = {
   contact: '/contact',
 } as const;
 
-export const getLocalizedRoute = (route: string, locale: string = defaultLocale) => {
+export const getLocalizedRoute = (route: string, locale: string = routing.defaultLocale) => {
   console.log('getLocalizedRoute', route, locale);
   // Handle root route specially
   if (route === '/') {
@@ -28,7 +28,7 @@ export const getLocalizedRoute = (route: string, locale: string = defaultLocale)
 // Helper to get the current locale from a pathname
 export const getLocaleFromPathname = (pathname: string): string => {
   const segments = pathname.split('/').filter(Boolean);
-  return segments[0] && locales.includes(segments[0] as any) 
+  return segments[0] && routing.locales.includes(segments[0] as any) 
     ? segments[0] 
-    : defaultLocale;
+    : routing.defaultLocale;
 }; 

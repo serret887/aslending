@@ -1,25 +1,12 @@
-import { redirect } from 'next/navigation';
-import { defaultLocale } from '@/i18n';
-import Image from "next/image";
-
-// This page only renders if there is no locale prefix
-export default function RootPage() {
-  redirect(`/${defaultLocale}`);
-}
-
-export function Home() {
+import {useTranslations} from 'next-intl';
+import {Link} from '@/i18n/routing';
+ 
+export default function HomePage() {
+  const t = useTranslations('HomePage');
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm">
-        <h1 className="text-4xl font-bold mb-8">Welcome to Your App</h1>
-        <p className="text-lg mb-4">This is your new Next.js application with:</p>
-        <ul className="list-disc list-inside space-y-2">
-          <li>Tailwind CSS for styling</li>
-          <li>Inter font for typography</li>
-          <li>Dark mode support</li>
-          <li>Responsive design</li>
-        </ul>
-      </div>
-    </main>
+    <div>
+      <h1>{t('title')}</h1>
+      <Link href="/about">{t('about')}</Link>
+    </div>
   );
 }

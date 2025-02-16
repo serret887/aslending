@@ -1,30 +1,20 @@
 import createMiddleware from 'next-intl/middleware';
 import { NextResponse, type NextRequest } from 'next/server';
 import { createMiddlewareClient } from '@supabase/auth-helpers-nextjs';
+import i18nConfig from '@/i18n/config';
 
-const locales = ['en', 'es'];
+// Middleware for internal Next.js requests
+const PUBLIC_FILE = /\.(.*)$/;
 
-// First handle internationalization
-const intlMiddleware = createMiddleware({
-  locales,
-  defaultLocale: 'en',
+export default createMiddleware({
+  // A list of all locales that are supported
+  locales: i18nConfig.locales,
+  // Used when no locale matches
+  defaultLocale: i18nConfig.defaultLocale,
+  // Set to 'always' to make the locale prefix required
   localePrefix: 'always'
 });
 
-// Then handle Supabase auth
-export async function middleware(request: NextRequest) {
-  const res = NextResponse.next();
-  const supabase = createMiddlewareClient({ req: request, res });
-
-  console.log('middleware');
-  // Refresh session if expired
-  await supabase.auth.getSession();
-
-  // Handle internationalization
-  return intlMiddleware(request);
-}
-
-// Match all paths except api, static files, etc
 export const config = {
   matcher: ['/((?!api|_next|_vercel|.*\\..*).*)']
 }; 
