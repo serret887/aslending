@@ -71,16 +71,18 @@
   },
   "auth": {
     "welcome": "Bienvenido de nuevo",
-    "signIn": "Iniciar sesión",
-    "signUp": "Registrarse",
+    "loginToAccount": "Inicia sesión en tu cuenta de AS Lending",
     "email": "Correo electrónico",
     "password": "Contraseña",
-    "loading": "Cargando...",
+    "forgotPassword": "¿Olvidaste tu contraseña?",
+    "login": "Iniciar sesión",
+    "orContinueWith": "O continúa con",
     "noAccount": "¿No tienes una cuenta?",
-    "hasAccount": "¿Ya tienes una cuenta?",
-    "verifyEmail": "Revisa tu correo",
-    "verifyEmailInstructions": "Te hemos enviado un enlace de verificación. Por favor, revisa tu correo para verificar tu cuenta.",
-    "backToLogin": "Volver a iniciar sesión"
+    "signUp": "Registrarse",
+    "termsNotice": "Al hacer clic en continuar, aceptas nuestros",
+    "termsOfService": "Términos de Servicio",
+    "and": "y",
+    "privacyPolicy": "Política de Privacidad"
   },
   "profile": {
     "title": "Configuración de Perfil",

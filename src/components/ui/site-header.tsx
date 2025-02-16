@@ -52,11 +52,13 @@ export function SiteHeader() {
             <PhoneIcon className="h-4 w-4 text-[#E31837]" />
             <span className="text-sm font-medium">(888) 452-8179</span>
           </div>
-          <Button variant="ghost" className="text-sm font-medium">
-            Sign in
-          </Button>
+          <Link href="/auth/login" passHref>
+            <Button variant="ghost" className="text-sm font-medium">
+              {t("signIn")}
+            </Button>
+          </Link>
           <Button className="bg-[#E31837] text-white hover:bg-[#E31837]/90">
-            Apply now
+            {t("applyNow")}
           </Button>
         </div>
       </div>

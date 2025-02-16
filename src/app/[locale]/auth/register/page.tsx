@@ -11,29 +11,10 @@ export default function RegisterPage() {
   const { locale } = useParams();
 
   return (
-    <>
-      <RegisterForm />
-      <div className="mt-6">
-        <div className="relative">
-          <div className="absolute inset-0 flex items-center">
-            <div className="w-full border-t border-gray-300" />
-          </div>
-          <div className="relative flex justify-center text-sm">
-            <span className="bg-white px-2 text-gray-500">
-              {t('hasAccount')}
-            </span>
-          </div>
-        </div>
-
-        <div className="mt-6 text-center">
-          <Link
-            href={getLocalizedRoute(routes.auth.login, locale as string)}
-            className="font-medium text-indigo-600 hover:text-indigo-500"
-          >
-            {t('signIn')}
-          </Link>
-        </div>
-      </div>
-    </>
+      <div className="flex min-h-[calc(100vh-4rem)] flex-col items-center justify-center bg-muted/50">
+      <div className="w-full max-w-sm md:max-w-3xl">
+          <RegisterForm />
+       </div>
+     </div>
   );
 } 

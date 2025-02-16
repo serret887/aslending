@@ -71,16 +71,18 @@
   },
   "auth": {
     "welcome": "Welcome back",
-    "signIn": "Sign in",
-    "signUp": "Sign up",
-    "email": "Email address",
+    "loginToAccount": "Sign in to your AS Lending account",
+    "email": "Email",
     "password": "Password",
-    "loading": "Loading...",
+    "forgotPassword": "Forgot password?",
+    "login": "Login",
+    "orContinueWith": "Or continue with",
     "noAccount": "Don't have an account?",
-    "hasAccount": "Already have an account?",
-    "verifyEmail": "Check your email",
-    "verifyEmailInstructions": "We sent you a verification link. Please check your email to verify your account.",
-    "backToLogin": "Return to sign in"
+    "signUp": "Sign up",
+    "termsNotice": "By clicking continue, you agree to our",
+    "termsOfService": "Terms of Service",
+    "and": "and",
+    "privacyPolicy": "Privacy Policy"
   },
   "profile": {
     "title": "Profile Setup",
