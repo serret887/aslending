@@ -2,6 +2,7 @@
 
 import * as React from "react"
 import {
+  ColumnDef,
   ColumnFiltersState,
   SortingState,
   VisibilityState,
@@ -11,6 +12,8 @@ import {
   getPaginationRowModel,
   getSortedRowModel,
   useReactTable,
+  Column,
+  Table as TableType,
 } from "@tanstack/react-table"
 import { ChevronDown } from "lucide-react"
 import { toast } from "react-hot-toast"
@@ -71,7 +74,6 @@ export function DataTable({ data }: DataTableProps) {
   }, [table.getFilteredSelectedRowModel().rows])
 
   const handleBulkAction = React.useCallback((action: string) => {
-    // Here you would implement the actual bulk action logic
     toast.success(`Executing ${action} for ${selectedClients.length} clients`)
   }, [selectedClients.length])
 
@@ -124,18 +126,16 @@ export function DataTable({ data }: DataTableProps) {
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow key={headerGroup.id}>
-                {headerGroup.headers.map((header) => {
-                  return (
-                    <TableHead key={header.id}>
-                      {header.isPlaceholder
-                        ? null
-                        : flexRender(
-                            header.column.columnDef.header,
-                            header.getContext()
-                          )}
-                    </TableHead>
-                  )
-                })}
+                {headerGroup.headers.map((header) => (
+                  <TableHead key={header.id}>
+                    {header.isPlaceholder
+                      ? null
+                      : flexRender(
+                          header.column.columnDef.header,
+                          header.getContext()
+                        )}
+                  </TableHead>
+                ))}
               </TableRow>
             ))}
           </TableHeader>

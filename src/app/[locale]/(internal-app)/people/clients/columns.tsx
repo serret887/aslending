@@ -12,6 +12,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+import { Table } from "@tanstack/react-table"
 
 export type Client = {
   id: string
@@ -24,13 +25,13 @@ export type Client = {
 export const columns: ColumnDef<Client>[] = [
   {
     id: "select",
-    header: ({ table }) => (
+    header: ({ table }: { table: Table<Client> }) => (
       <Checkbox
         checked={
           table.getIsAllPageRowsSelected() ||
           (table.getIsSomePageRowsSelected() && "indeterminate")
         }
-        onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
+        onCheckedChange={(value: boolean) => table.toggleAllPageRowsSelected(!!value)}
         aria-label="Select all"
         className="ml-4"
       />
@@ -38,7 +39,7 @@ export const columns: ColumnDef<Client>[] = [
     cell: ({ row }) => (
       <Checkbox
         checked={row.getIsSelected()}
-        onCheckedChange={(value) => row.toggleSelected(!!value)}
+        onCheckedChange={(value: boolean) => row.toggleSelected(!!value)}
         aria-label="Select row"
         className="ml-4"
       />
